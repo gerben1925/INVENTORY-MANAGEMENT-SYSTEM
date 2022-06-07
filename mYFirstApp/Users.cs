@@ -41,11 +41,8 @@ namespace mYFirstApp
         {
             var datetoday = DateTime.Today;
             dbconn.executeQuery("INSERT INTO tbl_user(username,password,user_lvl,date_created)VALUES('"+ textBox1.Text +"','"+ textBox2.Text +"','"+ this.comboBox1.SelectedValue.ToString() +"','" + datetoday + "') ");
-            if (dbconn.addToDb == true)
             MessageBox.Show("SUCCESSFULLY ADDED!");
             clearField();
-                
-            
             fetchData();
         }
 
@@ -64,6 +61,7 @@ namespace mYFirstApp
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             ID = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -78,6 +76,28 @@ namespace mYFirstApp
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dbconn.executeQuery("UPDATE tbl_user SET username='"+textBox1.Text+"',password='"+ textBox2.Text + "',user_lvl = '"+ this.comboBox1.SelectedValue.ToString() +"' WHERE id='"+ ID +"'  ");
+            MessageBox.Show("SUCCESSFULLY UPDATED!");
+            fetchData();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text !="" || textBox2.Text != "")
+            {
+                dbconn.executeQuery("DELETE FROM tbl_user WHERE id='" + ID + "' ");
+                MessageBox.Show("SUCCESSFULLY DELETED! ");
+                fetchData();
+            }
+            else
+            {
+                MessageBox.Show("NO RECORDS TO BE DELETED!");
+            }
         }
     }
 }
