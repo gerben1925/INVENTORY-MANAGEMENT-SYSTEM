@@ -42,11 +42,10 @@ namespace mYFirstApp
             var datetoday = DateTime.Today;
             dbconn.executeQuery("INSERT INTO tbl_user(username,password,user_lvl,date_created)VALUES('"+ textBox1.Text +"','"+ textBox2.Text +"','"+ this.comboBox1.SelectedValue.ToString() +"','" + datetoday + "') ");
             if (dbconn.addToDb == true)
-            {
-                MessageBox.Show("SUCCESSFULLY ADDED!");
-                clearField();
+            MessageBox.Show("SUCCESSFULLY ADDED!");
+            clearField();
                 
-            }
+            
             fetchData();
         }
 
