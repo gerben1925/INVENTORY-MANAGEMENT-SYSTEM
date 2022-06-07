@@ -17,7 +17,7 @@ namespace mYFirstApp.MyClass
         public DataTable? dt;
         public string? username, pass;
         public int logcount=0;
-        public bool formHide = false;
+        public bool formHide = false, addToDb =false;
        
 
         // store data to datagridview
@@ -126,6 +126,28 @@ namespace mYFirstApp.MyClass
             {
                 con.Close();
                
+            }
+        }
+
+        public void executeQuery(string query)
+        {
+            try
+            {
+                if(con.State !=ConnectionState.Open)
+                {
+                    con.Open();
+                }
+                addToDb = true;
+                cmd = new SqlCommand(query,con);
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
             }
         }
        
