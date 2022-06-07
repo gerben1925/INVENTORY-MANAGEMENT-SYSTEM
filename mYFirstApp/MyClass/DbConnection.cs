@@ -47,6 +47,7 @@ namespace mYFirstApp.MyClass
             finally 
             {
                 con.Close();
+          
             }
         }
         //fill data to datagriview
@@ -96,6 +97,7 @@ namespace mYFirstApp.MyClass
             finally
             {
                 con.Close();
+             
             }
         }
         public void fetch_Combo(string query, ComboBox cbo)
@@ -123,6 +125,7 @@ namespace mYFirstApp.MyClass
             finally
             {
                 con.Close();
+               
             }
         }
        
