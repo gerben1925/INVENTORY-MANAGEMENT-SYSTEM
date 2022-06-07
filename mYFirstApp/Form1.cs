@@ -23,7 +23,7 @@ namespace mYFirstApp
             dashboardForm dform = new dashboardForm();
             query = "SELECT* FROM tbl_user WHERE username='"+ textBox1.Text +"' AND password = '"+ textBox2.Text +"' ";
             con.fetchLogin(query,  dform );
-            if (con.logcount !=0)
+            if (con.formHide ==true)
             {
                 this.Hide();
             }
