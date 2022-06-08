@@ -31,5 +31,11 @@ namespace mYFirstApp
             Users user_form = new Users();
             user_form.ShowDialog();
         }
+
+        private void brandToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Brand fbrand = new Brand();
+            fbrand.ShowDialog();
+        }
     }
 }

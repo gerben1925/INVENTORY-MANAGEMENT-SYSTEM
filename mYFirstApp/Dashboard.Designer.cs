@@ -88,6 +88,7 @@
             this.brandToolStripMenuItem.Name = "brandToolStripMenuItem";
             this.brandToolStripMenuItem.Size = new System.Drawing.Size(64, 25);
             this.brandToolStripMenuItem.Text = "BRAND";
+            this.brandToolStripMenuItem.Click += new System.EventHandler(this.brandToolStripMenuItem_Click);
             // 
             // categoryToolStripMenuItem
             // 
